@@ -1,0 +1,34 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--backgroun-color);
+  gap: 20px;
+
+  width: auto;
+  height: 80px;
+
+  padding: 16px;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  margin: auto 0;
+}
+
+.search-box input {
+  padding-right: 40px;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 1042px;
+  top: 17%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

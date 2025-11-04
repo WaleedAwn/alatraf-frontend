@@ -5,19 +5,19 @@ aside {
   height: 100%;
 
   display: flex;
-  flex-direction: column; 
-  align-items: center;   
- 
-   height: 100vh;         
-  overflow-y: auto;       
+  flex-direction: column;
+  align-items: center;
+
+  height: 100vh;
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
 
 aside button {
   display: flex;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   gap: 16px;
 
   width: 248px;
@@ -33,29 +33,32 @@ aside button {
 
 aside button img {
   object-fit: contain;
-  display: block; 
+  display: block;
 }
 
-aside button .title-md{
+aside button .title-md {
   color: var(--white-color);
   line-height: 1;
-  margin: 0; 
+  margin: 0;
 }
 
-aside .title-sm{
+aside .title-sm {
   color: var(--white-color);
   line-height: 1;
-  margin: 0; 
+  margin: 0;
   text-align: center;
   margin-top: 32px;
 }
 
 .menu-line {
   display: block;
-  width: 100%; /* تقدر تغير العرض */
-  height: 0.8px; /* سمك الخط */
+  width: 100%;
+  /* تقدر تغير العرض */
+  height: 0.8px;
+  /* سمك الخط */
   background-color: var(--white-color);
-  margin: 16px auto; /* مسافة فوق + في المنتصف */
+  margin: 16px auto;
+  /* مسافة فوق + في المنتصف */
   border-radius: 2px;
 }
 
@@ -68,18 +71,18 @@ aside button.active {
 }
 
 aside button.active .title-md {
-  color: var(--primary-color); 
+  color: var(--primary-color);
 }
 
 aside button.active img {
-  content: url("../assets/icons/home-blue.svg"); 
+  content: url("../assets/icons/home-blue.svg");
 }
 
-aside > button {
+aside>button {
   margin: 40px 0;
 }
 
-aside ul ,
-aside ul li{
-  list-style: none; 
+aside ul,
+aside ul li {
+  list-style: none;
 }
