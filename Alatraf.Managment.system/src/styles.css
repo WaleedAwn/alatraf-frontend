@@ -1,1 +1,120 @@
 /* You can add global styles to this file, and also import other style files */
+/* === GLOBAL RESET === */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: #0d6efd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: #fff !important;
+}
+
+.navbar .text-white {
+  font-weight: 500;
+}
+
+.navbar .btn-outline-light {
+  border-color: #ffffff;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #0d6efd;
+}
+
+/* === MAIN CONTAINER === */
+.container {
+  margin-top: 1.5rem;
+  max-width: 1200px;
+}
+
+/* === LOGIN PAGE === */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.login-card {
+  background: #ffffff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-card h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #0d6efd;
+}
+
+.login-card .form-control {
+  border-radius: 8px;
+}
+
+.login-card .btn-primary {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* === CUSTOMER PAGE === */
+.table {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #f1f3f5;
+  color: #495057;
+  font-weight: 600;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.spinner-border {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* === ERROR & EMPTY STATES === */
+.alert {
+  border-radius: 8px;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .login-card {
+    padding: 1.5rem;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+}
