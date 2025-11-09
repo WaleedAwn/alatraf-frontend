@@ -212,6 +212,16 @@ input:focus {
   background-color: var(--primary-color-hover);
 }
 
+.home-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray-color);
+  margin: 24px auto;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
+}
+
 .primary-color {
   color: var(--primary-color);
 }
@@ -223,4 +233,27 @@ input:focus {
 .space-between {
   display: flex;
   justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.gap-16 {
+  gap: 16px;
 }

@@ -23,8 +23,8 @@
 }
 
 .btn.secondary:hover {
-  background-color: var(--background-color);
-  color: var(--primary-color-hover);
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .btn.danger {
@@ -34,4 +34,16 @@
 
 .btn.danger:hover {
   background-color: #c0392b;
+}
+
+.btn.icon {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.btn.icon img {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: 24px;
 }

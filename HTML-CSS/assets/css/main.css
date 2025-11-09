@@ -1,0 +1,38 @@
+main {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+main .title-sm {
+  margin-bottom: 32px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+td .body-sm {
+  margin-top: -16px;
+  margin-bottom: -8px;
+}
+
+.table-wrapper {
+  overflow-y: auto;
+  height: 300px;
+  width: 100%;
+}
+
+.recent-operations {
+  flex: 2;
+}
+
+.quick-access {
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+}
