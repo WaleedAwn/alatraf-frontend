@@ -127,7 +127,8 @@ body {
 
 /* Title / Small */
 .title-sm,
-input::placeholder {
+input::placeholder,
+th {
   font-size: 1.125rem;
   /* 18px */
   font-weight: 600;
@@ -137,7 +138,8 @@ input::placeholder {
   margin: 0 0 0.3em 0;
 }
 
-.title-sm {
+.title-sm,
+th {
   color: var(--primary-color);
 }
 
@@ -256,4 +258,16 @@ input:focus {
 
 .gap-16 {
   gap: 16px;
+}
+
+.gap-32 {
+  gap: 32px;
+}
+
+.padding-24 {
+  padding: 24px;
+}
+
+.padding-80 {
+  padding: 80px;
 }

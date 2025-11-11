@@ -1,9 +1,12 @@
 .btn {
-  padding: 12px 24px;
+  padding: 12px 32px;
   border-radius: 16px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  width: fit-content;
+  height: fit-content;
+  white-space: nowrap;
 }
 
 
