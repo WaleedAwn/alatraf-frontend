@@ -1,7 +1,6 @@
 aside {
   grid-area: aside;
   background-color: var(--primary-color);
-  width: fit-content;
   height: 100%;
 
   display: flex;

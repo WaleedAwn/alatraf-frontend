@@ -1,0 +1,88 @@
+aside {
+  grid-area: aside;
+  background-color: var(--primary-color);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+
+aside button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  width: 240px;
+  height: 36px;
+  padding: 22px 0;
+
+  background: none;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+aside button img {
+  object-fit: contain;
+  display: block;
+}
+
+aside button .title-md {
+  color: var(--white-color);
+  line-height: 1;
+  margin: 0;
+}
+
+aside .title-sm {
+  color: var(--white-color);
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+  margin-top: 32px;
+}
+
+.menu-line {
+  display: block;
+  width: 100%;
+  height: 0.8px;
+  background-color: var(--white-color);
+  margin: 16px auto;
+  border-radius: 2px;
+}
+
+aside button:hover {
+  background-color: var(--primary-color-hover);
+}
+
+aside button.active {
+  background-color: var(--card-active-color);
+}
+
+aside button.active .title-md {
+  color: var(--primary-color);
+}
+
+aside button img {
+  content: url("/assets/icons/home-white.svg");
+}
+
+aside button.active img {
+  content: url("/assets/icons/home-blue.svg");
+}
+
+aside>button {
+  margin: 40px 0;
+}
+
+aside ul,
+aside ul li {
+  list-style: none;
+}
