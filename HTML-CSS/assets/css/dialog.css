@@ -6,4 +6,5 @@
   z-index: 3;
   width: calc(100% - 128px);
   max-height: 688px;
+  max-width: 815px;
 }

@@ -1,14 +1,16 @@
 .btn {
-  padding: 12px 64px;
+  padding: 8px 48px;
   border-radius: 16px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  width: fit-content;
-  height: fit-content;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
+  font-family: inherit;
+  font-size: 1rem;
 }
-
 
 .btn.primary {
   background-color: var(--primary-color);
@@ -17,6 +19,7 @@
 
 .btn.primary:hover {
   background-color: var(--primary-color-hover);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn.secondary {
@@ -28,6 +31,7 @@
 .btn.secondary:hover {
   background-color: var(--primary-color);
   color: var(--white-color);
+  border-color: var(--primary-color-hover);
 }
 
 .btn.danger {
@@ -37,6 +41,7 @@
 
 .btn.danger:hover {
   background-color: #c0392b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn.icon {
@@ -45,8 +50,7 @@
 }
 
 .btn.icon img {
-  display: flex;
-  align-items: center;
   height: 24px;
   width: 24px;
+  vertical-align: middle;
 }
