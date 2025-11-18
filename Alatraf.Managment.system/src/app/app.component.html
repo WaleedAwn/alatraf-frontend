@@ -1,5 +1,168 @@
 <app-sidebar></app-sidebar>
 <app-header></app-header>
+
 <main class="padding-80 column gap-32">
-<router-outlet></router-outlet>
+
+  <div class="row space-between">
+    <button class="btn primary label-lg">إضافة مريض</button>
+    <button class="btn primary label-lg">إستشارة طبيبة</button>
+  </div>
+
+  <div class="box max-hight-712">
+    <h1 class="title-lg ">البحث عن مريض</h1>
+
+    <div class="search-box">
+      <img src="../../assets/icons/search-icon.svg" class="search-icon" alt="search">
+      <input type="text" placeholder="بحث: اسم المريض أو الرقم">
+    </div>
+
+    <table>
+      <thead class="sticky">
+        <tr>
+          <th>
+            رقم المريض
+          </th>
+          <th class="th-expand">
+            اسم المريض
+          </th>
+          <th class="buttons"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="body-md">852963741</td>
+          <td class="body-md">عبدالإله محمد خالد عبدالله</td>
+          <td class="row gap-16">
+            <button class="btn primary icon">
+              <p class="label-md">اصدار كرت خدمة</p>
+            </button>
+            <button class="btn primary icon">
+              <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+            </button>
+            <button class="btn danger icon">
+              <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="body-md">741789852</td>
+          <td class="body-md">عبدالحميد مجاهد سعيد الشرجي</td>
+          <td class="row gap-16">
+            <button class="btn primary icon">
+              <p class="label-md">اصدار كرت خدمة</p>
+            </button>
+            <button class="btn primary icon">
+              <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+            </button>
+            <button class="btn danger icon">
+              <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="body-md">456852123</td>
+          <td class="body-md">عبدالخالق محمد أحمد محمد</td>
+          <td class="row gap-16">
+            <button class="btn primary icon">
+              <p class="label-md">اصدار كرت خدمة</p>
+            </button>
+            <button class="btn primary icon">
+              <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+            </button>
+            <button class="btn danger icon">
+              <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="body-md">753952185</td>
+          <td class="body-md">عبدالرحمن أحمد غالب الزنداني</td>
+          <td class="row gap-16">
+            <button class="btn primary icon">
+              <p class="label-md">اصدار كرت خدمة</p>
+            </button>
+            <button class="btn primary icon">
+              <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+            </button>
+            <button class="btn danger icon">
+              <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="body-md">412896753</td>
+          <td class="body-md">عبدالرحمن خالد عبدالله البركاني</td>
+          <td class="row gap-16">
+            <button class="btn primary icon">
+              <p class="label-md">اصدار كرت خدمة</p>
+            </button>
+            <button class="btn primary icon">
+              <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+            </button>
+            <button class="btn danger icon">
+              <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="body-md">852963741</td>
+          <td class="body-md">عبدالرحمن وحيد عبدالوهاب العباسي</td>
+          <td class="row gap-16">
+            <button class="btn primary icon">
+              <p class="label-md">اصدار كرت خدمة</p>
+            </button>
+            <button class="btn primary icon">
+              <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+            </button>
+            <button class="btn danger icon">
+              <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="body-md">741963852</td>
+          <td class="body-md">عبدالرحمن فكري محمد عبده</td>
+          <td class="row gap-16">
+            <button class="btn primary icon">
+              <p class="label-md">اصدار كرت خدمة</p>
+            </button>
+            <button class="btn primary icon">
+              <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+            </button>
+            <button class="btn danger icon">
+              <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+            </button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="body-md">741963852</td>
+          <td class="body-md">عبدالرحمن فكري محمد عبده</td>
+          <td class="row gap-16">
+            <button class="btn primary icon">
+              <p class="label-md">اصدار كرت خدمة</p>
+            </button>
+            <button class="btn primary icon">
+              <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+            </button>
+            <button class="btn danger icon">
+              <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+
+    </table>
+
+
+  </div>
+
 </main>

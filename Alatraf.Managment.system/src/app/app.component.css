@@ -1,9 +1,23 @@
 :host {
   display: grid;
-  grid-template-columns: 336px 1fr auto;
+  grid-template-columns: 336px 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
-    "aside header"
-    "aside main";
+    "sidebar header"
+    "sidebar main";
   height: 100vh;
+  overflow: hidden;
+}
+
+app-sidebar {
+  grid-area: sidebar;
+}
+
+app-header {
+  grid-area: header;
+}
+
+main,
+router-outlet {
+  grid-area: main;
 }
