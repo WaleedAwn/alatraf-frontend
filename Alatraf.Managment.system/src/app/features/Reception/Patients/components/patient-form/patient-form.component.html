@@ -1,0 +1,97 @@
+<span class="backdrop"></span>
+
+<div class="box dialog">
+  <div class="space-between sticky">
+    <h2 class="title-lg">
+      اصدار تذكرة خدمة
+    </h2>
+    <img src="../../assets/icons/close-icon.svg" alt="إغلاق" (click)="onClose()" />
+  </div>
+
+  <div>
+    <p class="title-md ">
+      بيانات المريض
+    </p>
+    <span class="home-line"></span>
+  </div>
+
+  <form class="padding-LR-24 column gap-16">
+
+    <div class="row flex-center">
+      <label class="label-lg">
+        رقم المريض
+      </label>
+      <input class="label-lg" type="text" placeholder="">
+    </div>
+
+    <div class="row flex-center">
+      <label class="label-lg">
+        الاسم
+      </label>
+      <input class="label-lg" type="text" placeholder="">
+    </div>
+
+    <div class="row flex-center">
+      <label class="label-lg">
+        الجنس
+      </label>
+      <select class="label-lg">
+        <option value=""></option>
+        <option value="ذكر">ذكر</option>
+        <option value="أنثى">أنثى</option>
+      </select>
+
+      <label class="label-lg">
+        تاريخ الميلاد
+      </label>
+      <input class="label-lg" type="date" placeholder="">
+    </div>
+
+    <div class="row flex-center">
+      <label class="label-lg">
+        رقم الهاتف
+      </label>
+      <input class="label-lg" type="number" placeholder="">
+    </div>
+
+    <div class="row flex-center">
+      <label class="label-lg">
+        العنوان
+      </label>
+      <input class="label-lg" type="text" placeholder="">
+    </div>
+
+    <div class="row flex-center">
+      <label class="label-lg">
+        رقم الهوية
+      </label>
+      <input class="label-lg" type="number" placeholder="">
+    </div>
+
+    <div class="width-100">
+      <p class="title-md">
+        بيانات الخدمة
+      </p>
+
+      <span class="home-line"></span>
+    </div>
+
+    <div class="row flex-center">
+      <label class="label-lg">
+        نوع الخدمة
+      </label>
+      <select class="label-lg">
+        <option value=""></option>
+        <option value="علاج طبيعي">علاج طبيعي</option>
+        <option value="أطراف صناعية">أطراف صناعية</option>
+      </select>
+    </div>
+
+
+    <button class="btn primary label-md">
+      طباعة
+    </button>
+
+  </form>
+
+</div>

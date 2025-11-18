@@ -56,6 +56,51 @@
   box-sizing: border-box;
   font-family: 'Cairo', sans-serif;
   direction: rtl;
+  /* كل العناصر تتبع box-sizing */
+  box-sizing: border-box;
+  /* Firefox */
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-color);
+
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  /* خلفية شريط الشفاف */
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-color);
+  border-radius: 16px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 16px;
+  border: 2px solid var(--background-color);
+  transition: background-color 0.3s, opacity 0.3s;
+  opacity: 0.3;
+  /* شفاف افتراضي */
+}
+
+*::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--primary-color-hover);
+  opacity: 1;
+  /* يظهر بوضوح عند المرور */
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--background-color);
+}
+
+/* خيار إضافي: عند تمرير العنصر نفسه يظهر السكولبار أكثر وضوحاً */
+*:hover::-webkit-scrollbar-thumb {
+  opacity: 0.7;
 }
 
 body {
@@ -247,55 +292,4 @@ input::placeholder {
 
 .border-radius-20 {
   border-radius: 20px;
-}
-
-
-
-/* كل العناصر تتبع box-sizing */
-* {
-  box-sizing: border-box;
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--primary-color) var(--background-color);
-}
-
-/* Chrome, Edge, Safari */
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: transparent;
-  /* خلفية شريط الشفاف */
-}
-
-*::-webkit-scrollbar-track {
-  background: var(--background-color);
-  border-radius: 16px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);
-  border-radius: 16px;
-  border: 2px solid var(--background-color);
-  transition: background-color 0.3s, opacity 0.3s;
-  opacity: 0.3;
-  /* شفاف افتراضي */
-}
-
-*::-webkit-scrollbar-thumb:hover,
-*::-webkit-scrollbar-thumb:active {
-  background-color: var(--primary-color-hover);
-  opacity: 1;
-  /* يظهر بوضوح عند المرور */
-}
-
-*::-webkit-scrollbar-corner {
-  background: var(--background-color);
-}
-
-/* خيار إضافي: عند تمرير العنصر نفسه يظهر السكولبار أكثر وضوحاً */
-*:hover::-webkit-scrollbar-thumb {
-  opacity: 0.7;
 }
