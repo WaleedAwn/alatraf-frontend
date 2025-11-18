@@ -1,25 +1,30 @@
 <aside>
-  <img src="/assets/images/logo-white.svg" alt="مركز الأطراف و العلاج الطبيعي">
+  <img
+    src="/assets/images/logo-white.svg"
+    alt="مركز الأطراف و العلاج الطبيعي"
+  />
 
   <button>
-    <img alt="الصفحة الرئيسية">
+    <img alt="الصفحة الرئيسية" />
     <p class="title-md">الصفحة الرئيسية</p>
   </button>
 
   <ul>
+    @for (cat of menu(); track $index) {
+
     <li>
-      <p class="title-sm">
-        الاستقبال
+      <p class="title-sm" >
+        {{ cat.category }}
       </p>
       <span class="menu-line"></span>
     </li>
-
-
+    @for (item of cat.items; track $index) {
     <li>
       <button>
-        <img alt="الصفحة الرئيسية">
-        <p class="title-md">الصفحة الرئيسية</p>
+        <img alt="الصفحة الرئيسية" />
+        <p class="title-md"  [routerLink]="[item.route]" routerLinkActive="active"> {{ item.label }}</p>
       </button>
     </li>
+    } }
   </ul>
 </aside>
