@@ -2,12 +2,14 @@ import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from "@angular/router";
 import { SidebarComponent } from "./layout/sidebar/sidebar.component";
 import { HeaderComponent } from "./layout/header/header.component";
+import { PatientsListComponent } from "./features/Reception/Patients/components/patients.list/patients.list.component";
 
 @Component({
   selector: 'app-root',
+  standalone:true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, SidebarComponent, HeaderComponent]
+  imports: [SidebarComponent, HeaderComponent, RouterOutlet]
 })
 export class AppComponent {
   title = 'Alatraf.Managment.system';

@@ -1,14 +1,12 @@
 import { PERMISSIONS } from './../constants/permissions';
 
 export interface MenuItem {
-  label: string;              // Name of the menu item
-  icon?: string;              // Default icon
-  activeIcon?: string;        // Icon when the menu item is active
-  route: string;              // Angular route path
+  label: string; // Name of the menu item
+  icon?: string; // Default icon
+  activeIcon?: string; // Icon when the menu item is active
+  route: string; // Angular route path
   requiredPermissions: string[]; // Permissions needed to see/access this item
 }
-
-
 
 export interface MenuCategory {
   category: string; // Category name
@@ -18,20 +16,20 @@ export interface MenuCategory {
 
 export const MENU_CONFIG: MenuCategory[] = [
   {
-    category: 'Registration',
-    CateRoute: '/regestration',
+    category: 'الاستقبال',
+    CateRoute: 'registration',
     items: [
       {
-        label: 'Add Patient',
+        label: 'إضافة مريض',
         icon: '',
-        route: '/patients/add',
+        route: '/registration/patients',
         requiredPermissions: [PERMISSIONS.PATIENTS.ADD],
       },
       {
-        label: 'Patient List',
+        label: 'عرض المرضى ',
         icon: '',
 
-        route: '/patients/view',
+        route: '/registration/patients',
         requiredPermissions: [PERMISSIONS.PATIENTS.VIEW],
       },
     ],
