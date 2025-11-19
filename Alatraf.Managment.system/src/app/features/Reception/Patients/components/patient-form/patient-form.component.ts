@@ -1,4 +1,5 @@
-import { Component, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { Patient } from '../../models/patient.model';
 
 @Component({
   selector: 'app-patient-form',
@@ -7,6 +8,7 @@ import { Component, output } from '@angular/core';
   styleUrl: './patient-form.component.css',
 })
 export class PatientFormComponent {
+  patient = input.required<Patient | undefined>();
   close = output();
 
   onClose() {
