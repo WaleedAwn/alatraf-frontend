@@ -19,14 +19,18 @@
           <label class="label-lg">
             رقم المريض
           </label>
-          <input class="label-lg" type="text" placeholder="">
+          <input class="label-lg" type="text" placeholder="" value="{{patient()?.patientId}}   ">
+
+
+
+
         </div>
 
         <div class="row flex-center">
           <label class="label-lg">
             الاسم
           </label>
-          <input class="label-lg" type="text" placeholder="">
+          <input class="label-lg" type="text" placeholder="" value="{{patient()?.fullname}}   ">
         </div>
 
         <div class="row flex-center">
@@ -34,7 +38,7 @@
             الجنس
           </label>
           <select class="label-lg">
-            <option value=""></option>
+            <option value="{{patient()?.gender}}   "></option>
             <option value="ذكر">ذكر</option>
             <option value="أنثى">أنثى</option>
           </select>
@@ -42,28 +46,28 @@
           <label class="label-lg">
             تاريخ الميلاد
           </label>
-          <input class="label-lg" type="date" placeholder="">
+          <input class="label-lg" type="text" placeholder="" value="{{patient()?.birthdate}}   ">
         </div>
 
         <div class="row flex-center">
           <label class="label-lg">
             رقم الهاتف
           </label>
-          <input class="label-lg" type="number" placeholder="">
+          <input class="label-lg" type="text" placeholder="" value="{{patient()?.phone}}   ">
         </div>
 
         <div class="row flex-center">
           <label class="label-lg">
             العنوان
           </label>
-          <input class="label-lg" type="text" placeholder="">
+          <input class="label-lg" type="text" placeholder="" value="{{patient()?.address}}   ">
         </div>
 
         <div class="row flex-center">
           <label class="label-lg">
             رقم الهوية
           </label>
-          <input class="label-lg" type="number" placeholder="">
+          <input class="label-lg" type="text" placeholder="" value="{{patient()?.autoRegistrationNumber}}   ">
         </div>
 
         <div class="width-100">
@@ -74,7 +78,7 @@
           <span class="home-line"></span>
         </div>
 
-        <div class="row flex-center">
+        <!-- <div class="row flex-center">
           <label class="label-lg">
             نوع الخدمة
           </label>
@@ -83,11 +87,11 @@
             <option value="علاج طبيعي">علاج طبيعي</option>
             <option value="أطراف صناعية">أطراف صناعية</option>
           </select>
-        </div>
+        </div> -->
 
 
         <button class="btn primary label-md">
-          طباعة
+          حفظ
         </button>
 
       </form>

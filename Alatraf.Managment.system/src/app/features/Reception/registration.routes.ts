@@ -16,7 +16,7 @@ export const ReceptionRoutes: Routes = [
           ).then((m) => m.PatientAddEditPageComponent),
       },
       {
-        path: 'edit',
+        path: 'edit/:patientId',
         loadComponent: () =>
           import(
             './Patients/Pages/patient-add-edit-page/patient-add-edit-page.component'

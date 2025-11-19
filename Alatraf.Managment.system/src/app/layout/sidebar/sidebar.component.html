@@ -13,7 +13,7 @@
     @for (cat of menu(); track $index) {
 
     <li>
-      <p class="title-sm" >
+      <p class="title-sm">
         {{ cat.category }}
       </p>
       <span class="menu-line"></span>
@@ -22,7 +22,13 @@
     <li>
       <button>
         <img alt="الصفحة الرئيسية" />
-        <p class="title-md"  [routerLink]="[item.route]" routerLinkActive="active"> {{ item.label }}</p>
+        <p
+          class="title-md"
+          [routerLink]="[item.route]"
+          routerLinkActive="active"
+        >
+          {{ item.label }}
+        </p>
       </button>
     </li>
     } }
