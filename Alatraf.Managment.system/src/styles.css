@@ -311,18 +311,18 @@ select {
   background-size: 20px;
 }
 
-input[type="date"] {
+/* input[type="date"] {
   background-image: url('/assets/icons/calendar-icon.svg');
   background-repeat: no-repeat;
   background-position: left 12px center;
-}
+} */
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+/* input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   opacity: 0;
   width: 0;
   height: 0;
-}
+} */
 /* 
 backdrop ,box ,dailog,homeline,table,button
 

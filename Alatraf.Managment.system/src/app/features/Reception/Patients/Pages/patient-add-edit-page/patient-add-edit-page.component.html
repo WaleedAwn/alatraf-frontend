@@ -1,1 +1,6 @@
-<app-patient-form (close)="onCancel()" [patient]="patientInfo()"></app-patient-form>
+<app-patient-form
+  (close)="onCancel()"
+  [patient]="patientInfo()"
+  (save)="OnSavePatient($event)"
+  [mode]="isEditMode()"
+></app-patient-form>

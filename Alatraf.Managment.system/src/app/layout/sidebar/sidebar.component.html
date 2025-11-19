@@ -21,7 +21,7 @@
     @for (item of cat.items; track $index) {
     <li>
       <button>
-        <img alt="الصفحة الرئيسية" />
+        <img alt="الصفحة الرئيسية" src="{{ item.icon }}" />
         <p
           class="title-md"
           [routerLink]="[item.route]"

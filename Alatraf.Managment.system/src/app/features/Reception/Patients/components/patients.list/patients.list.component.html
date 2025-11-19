@@ -1,4 +1,3 @@
-
 @if (patients()) {
 
 <table>
@@ -13,26 +12,30 @@
   <tbody>
     @for (patient of patients(); track $index) {
     <tr>
-      <td class="body-md">{{patient.phone}}</td>
-      <td class="body-md">{{patient.fullname}}</td>
+      <td class="body-md">{{ patient.phone }}</td>
+      <td class="body-md">{{ patient.fullname }}</td>
       <td class="row gap-16">
         <button class="btn primary icon">
           <p class="label-md">اصدار كرت خدمة</p>
         </button>
-        <button class="btn primary icon" [routerLink]="['edit/',patient.patientId]">
-          <img src="../../assets/icons/pencil-icon.svg" alt="تعديل" />
+        <button
+          class="btn primary icon"
+          [routerLink]="['edit/', patient.patientId]"
+        >
+          <img src="assets/icons/pencil-icon.svg" alt="تعديل" />
         </button>
-        <button class="btn danger icon" [routerLink]="['edit',patient.patientId]">
-          <img src="../../assets/icons/trash-icon.svg" alt="حذف" />
+        <button
+          class="btn danger icon"
+          [routerLink]="['edit', patient.patientId]"
+        >
+          <img src="assets/icons/trash-icon.svg" alt="حذف" />
         </button>
       </td>
     </tr>
     }
-  
   </tbody>
 </table>
-}
-@else {
+} @else {
 
-  <p> No Patients Data</p>
+<p>No Patients Data</p>
 }

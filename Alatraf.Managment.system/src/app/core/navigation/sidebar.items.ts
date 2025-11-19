@@ -20,16 +20,16 @@ export const MENU_CONFIG: MenuCategory[] = [
     CateRoute: 'registration',
     items: [
       {
-        label: 'إضافة مريض',
-        icon: '',
+        label: 'إدارة المرضى',
+        icon: 'assets/icons/user-icon.svg',
         route: '/registration/patients',
         requiredPermissions: [PERMISSIONS.PATIENTS.ADD],
       },
       {
         label: 'عرض المرضى ',
-        icon: '',
+        icon: 'assets/icons/user-icon.svg',
 
-        route: '/registration/patients',
+        route: '/registration',
         requiredPermissions: [PERMISSIONS.PATIENTS.VIEW],
       },
     ],

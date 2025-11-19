@@ -38,6 +38,17 @@ export class PatientController {
     return reqInfo.utils.createResponse$(() => options);
   }
 
+  static getById(reqInfo: RequestInfo) {
+  const id = parseInt(reqInfo.id as string, 10); // get id from URL
+  const collection = reqInfo.collection as Patient[];
+
+  const patient = collection.find(p => p.patientId === id);
+
+  const options = { body: patient  }; // return null if not found
+  return reqInfo.utils.createResponse$(() => options);
+}
+
+
   static create(reqInfo: RequestInfo) {
     const req = reqInfo.req as HttpRequest<CreateUpdatePatientDto>;
     const body = req.body;

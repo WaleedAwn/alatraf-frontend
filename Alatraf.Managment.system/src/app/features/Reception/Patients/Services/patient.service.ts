@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { map, tap } from 'rxjs/operators';
+import { computed, Injectable, signal } from '@angular/core';
 import { BaseApiService } from '../../../../core/services/base-api.service';
 import {
   CreateUpdatePatientDto,
@@ -15,6 +16,10 @@ import { ApiResult } from '../../../../core/models/ApiResult';
 export class PatientService extends BaseApiService {
   private endpoint = '/patients';
 
+   private patients = signal<Patient[]>([]);
+
+  loadedPatients = this.patients.asReadonly();
+
   getPatients(filters?: PatientFilterDto): Observable<ApiResult<Patient[]>> {
     let params = new HttpParams();
     if (filters?.patientType !== undefined)
@@ -24,10 +29,16 @@ export class PatientService extends BaseApiService {
     if (filters?.searchTerm)
       params = params.set('searchTerm', filters.searchTerm);
 
-    return this.get<Patient[]>(this.endpoint, params);
+    return this.get<Patient[]>(this.endpoint, params).pipe(
+      tap((patients) => {
+        if (patients.isSuccess && patients.data) {
+          this.patients.set(patients.data);
+        }
+      })
+    );
   }
 
-  // GET a single patient by ID
+
   getPatientById(id: number): Observable<ApiResult<Patient>> {
     return this.get<Patient>(`${this.endpoint}/${id}`);
   }
@@ -50,5 +61,3 @@ export class PatientService extends BaseApiService {
     return this.delete<void>(`${this.endpoint}/${id}`);
   }
 }
-
-

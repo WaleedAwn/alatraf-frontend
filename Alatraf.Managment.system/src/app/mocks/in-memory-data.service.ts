@@ -9,18 +9,20 @@ export class InMemoryDataService implements InMemoryDbService {
     };
   }
 
-  get(reqInfo: RequestInfo) {
-    if (reqInfo.collectionName === 'patients') {
+ get(reqInfo: RequestInfo) {
+  if (reqInfo.collectionName === 'patients') {
+    if (reqInfo.id) {
+      // If URL contains an ID, return single patient
+      return PatientController.getById(reqInfo);
+    } else {
+      // Otherwise return all patients
       return PatientController.getAll(reqInfo);
     }
-    return undefined;
   }
-    getbyId(reqInfo: RequestInfo) {
-    if (reqInfo.collectionName === 'patients') {
-      return PatientController.getAll(reqInfo);
-    }
-    return undefined;
-  }
+  return undefined;
+}
+
+   
 
   post(reqInfo: RequestInfo) {
     if (reqInfo.collectionName === 'patients') {

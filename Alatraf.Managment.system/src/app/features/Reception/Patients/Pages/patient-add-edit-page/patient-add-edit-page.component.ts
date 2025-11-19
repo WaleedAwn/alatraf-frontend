@@ -1,9 +1,15 @@
-import { Component, inject, input, signal } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  signal,
+  OnChanges,
+  DestroyRef,
+} from '@angular/core';
 import { PatientFormComponent } from '../../components/patient-form/patient-form.component';
 import { Router } from '@angular/router';
-import { Patient } from '../../models/patient.model';
+import { CreateUpdatePatientDto, Patient } from '../../models/patient.model';
 import { PatientService } from '../../Services/patient.service';
-import { ApiResult } from '../../../../../core/models/ApiResult';
 
 @Component({
   selector: 'app-patient-add-edit-page',
@@ -13,29 +19,46 @@ import { ApiResult } from '../../../../../core/models/ApiResult';
 })
 export class PatientAddEditPageComponent {
   private router = inject(Router);
-  patientId = input<string>();
   private patientService = inject(PatientService);
 
+  private destroyRef = inject(DestroyRef);
+
+  patientId = input<string>();
+  isEditMode = signal<boolean>(false);
   patientInfo = signal<Patient | undefined>(undefined);
+
   ngOnInit() {
     const id = Number(this.patientId());
     console.log(id);
-    this.patientService.getPatients().subscribe({
-      next: (result: ApiResult<Patient[]>) => {
-        if (result.isSuccess) {
-          let pa = result.data;
+    if (!isNaN(id)) {
+      this.isEditMode.set(true);
 
-          this.patientInfo.set(pa?.find((p) => p.patientId === id));
-          console.log(this.patientInfo());
-        } else {
-          console.log('Failed to load patients.');
-        }
-      },
-      error: (err) => {
-        // this.patients = err.body ?? [];
-        console.error('Customer Load Error:', err);
-      },
-    });
+      const subscription = this.patientService.getPatientById(id).subscribe({
+        next: (result) => {
+          if (result.isSuccess && result.data) {
+            this.patientInfo.set(result.data);
+          } else {
+            console.error('Patient not found or API error', result);
+          }
+        },
+        error: (err) => {
+          console.error('API error', err);
+          this.isEditMode.set(false);
+        },
+      });
+      this.destroyRef.onDestroy(() => {
+        subscription.unsubscribe();
+      });
+    }
+  }
+
+  OnSavePatient(newpatien: CreateUpdatePatientDto) {
+    if (this.isEditMode()) {
+
+      
+    }
+
+    console.log(newpatien);
   }
   onCancel() {
     this.closeModal();
