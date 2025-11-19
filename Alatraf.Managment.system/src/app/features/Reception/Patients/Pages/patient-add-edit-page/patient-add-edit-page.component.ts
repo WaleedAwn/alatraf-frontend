@@ -54,12 +54,21 @@ export class PatientAddEditPageComponent {
 
   OnSavePatient(newpatien: CreateUpdatePatientDto) {
     if (this.isEditMode()) {
+      const updated = this.patientService
+        .updatePatient(Number(this.patientId()), newpatien)
+        .subscribe();
 
-      
+      console.log('this is the updated  patient info ', newpatien);
+    } else {
+    const Addedpatient=this.patientService.createPatient(newpatien).subscribe();
+
+      console.log('Add new patient info ', newpatien);
     }
 
-    console.log(newpatien);
+    // console.log(newpatien);
+    this.closeModal();
   }
+
   onCancel() {
     this.closeModal();
   }

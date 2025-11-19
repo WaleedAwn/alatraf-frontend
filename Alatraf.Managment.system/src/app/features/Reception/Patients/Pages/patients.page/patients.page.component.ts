@@ -39,7 +39,6 @@ export class PatientsPageComponent implements OnInit {
 
   private debounceTimer: any;
   filters: PatientFilterDto = {};
-
   constructor() {
     effect(() => {
       const value = this.searchText();
@@ -47,12 +46,12 @@ export class PatientsPageComponent implements OnInit {
       this.debounceTimer = setTimeout(() => {
         this.filters.searchTerm = value;
         this.loadAllPatients(this.filters);
-      }, 1000);
+      }, 200);
     });
   }
 
   ngOnInit() {
-    this.loadAllPatients(this.filters);
+    // this.loadAllPatients(this.filters);
   }
 
   loadAllPatients(patientFilter: PatientFilterDto): void {
@@ -74,5 +73,6 @@ export class PatientsPageComponent implements OnInit {
 
   onSearch(value: string) {
     this.searchText.set(value);
+    this.filters.searchTerm = value;
   }
 }

@@ -12,7 +12,10 @@ import {
   ReactiveFormsModule,
   FormGroup,
 } from '@angular/forms';
-import { CreateUpdatePatientDto } from '../../models/patient.model';
+import {
+  CreateUpdatePatientDto,
+  PatientType,
+} from '../../models/patient.model';
 
 @Component({
   selector: 'app-patient-form',
@@ -38,10 +41,10 @@ export class PatientFormComponent implements OnChanges, OnInit {
       fullname: ['', Validators.required],
       gender: [true, Validators.required],
       birthdate: [''],
-      phone: [''],
+      phone: ['', Validators.required],
       address: [''],
       nationalNo: [''],
-      patientType: [0, Validators.required],
+      patientType: [PatientType.Normal, Validators.required],
     });
   }
 
@@ -58,6 +61,8 @@ export class PatientFormComponent implements OnChanges, OnInit {
   onSave() {
     if (this.form.valid) {
       this.save.emit(this.form.value as CreateUpdatePatientDto);
+    } else {
+      console.log(' the form is not valid ');
     }
   }
 

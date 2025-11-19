@@ -16,7 +16,7 @@ import { ApiResult } from '../../../../core/models/ApiResult';
 export class PatientService extends BaseApiService {
   private endpoint = '/patients';
 
-   private patients = signal<Patient[]>([]);
+  private patients = signal<Patient[]>([]);
 
   loadedPatients = this.patients.asReadonly();
 
@@ -32,12 +32,12 @@ export class PatientService extends BaseApiService {
     return this.get<Patient[]>(this.endpoint, params).pipe(
       tap((patients) => {
         if (patients.isSuccess && patients.data) {
+          console.log(' patients Called');
           this.patients.set(patients.data);
         }
       })
     );
   }
-
 
   getPatientById(id: number): Observable<ApiResult<Patient>> {
     return this.get<Patient>(`${this.endpoint}/${id}`);
