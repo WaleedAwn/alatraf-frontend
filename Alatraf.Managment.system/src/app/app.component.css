@@ -3,10 +3,9 @@
   grid-template-columns: 336px 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
-    "sidebar header"
-    "sidebar main";
+    "aside header"
+    "aside main";
   height: 100vh;
-  overflow: hidden;
 }
 aside {
   grid-area: aside;

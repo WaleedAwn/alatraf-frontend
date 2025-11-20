@@ -12,17 +12,8 @@
   overflow-y: auto;
 }
 
-.max-width-320 {
-  max-width: 320px;
-}
-
 .box.max-hight-712 {
   max-height: 712px;
-}
-
-.box.max-hight-800 {
-  max-height: 680px;
-  min-height: 680px;
 }
 
 .center-content {

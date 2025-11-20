@@ -56,51 +56,6 @@
   box-sizing: border-box;
   font-family: 'Cairo', sans-serif;
   direction: rtl;
-  /* كل العناصر تتبع box-sizing */
-  box-sizing: border-box;
-  /* Firefox */
-
-  scrollbar-width: thin;
-  scrollbar-color: var(--primary-color) var(--background-color);
-
-}
-
-/* Chrome, Edge, Safari */
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: transparent;
-  /* خلفية شريط الشفاف */
-}
-
-*::-webkit-scrollbar-track {
-  background: var(--background-color);
-  border-radius: 16px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);
-  border-radius: 16px;
-  border: 2px solid var(--background-color);
-  transition: background-color 0.3s, opacity 0.3s;
-  opacity: 0.3;
-  /* شفاف افتراضي */
-}
-
-*::-webkit-scrollbar-thumb:hover,
-*::-webkit-scrollbar-thumb:active {
-  background-color: var(--primary-color-hover);
-  opacity: 1;
-  /* يظهر بوضوح عند المرور */
-}
-
-*::-webkit-scrollbar-corner {
-  background: var(--background-color);
-}
-
-/* خيار إضافي: عند تمرير العنصر نفسه يظهر السكولبار أكثر وضوحاً */
-*:hover::-webkit-scrollbar-thumb {
-  opacity: 0.7;
 }
 
 body {
@@ -183,6 +138,7 @@ th {
   font-weight: 400;
   letter-spacing: 0.021875rem;
   line-height: 1.6;
+  margin: 0 0 1em 0;
   color: var(--primary-color);
 }
 
@@ -215,16 +171,8 @@ input::placeholder {
   color: var(--primary-color);
 }
 
-.primary-color-background {
-  background-color: var(--primary-color);
-}
-
 .primary-color-50 {
   color: var(--primary-color-50);
-}
-
-.white-color {
-  color: var(--white-color);
 }
 
 .space-between {
@@ -244,11 +192,6 @@ input::placeholder {
   flex-direction: row;
   width: 100%;
   white-space: nowrap;
-}
-
-.WH-40 {
-  width: 40px;
-  height: 40px;
 }
 
 .column {
@@ -275,21 +218,60 @@ input::placeholder {
 }
 
 .padding-80 {
-  padding: 80px 80px 20px 80px;
+  padding: 80px;
 }
 
 .width-100 {
   width: 100%;
 }
 
-.margin-auto {
-  margin: auto;
+
+
+/* كل العناصر تتبع box-sizing */
+* {
+  box-sizing: border-box;
 }
 
-.padding-auto {
-  padding: auto;
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-color);
 }
 
-.border-radius-20 {
-  border-radius: 20px;
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  /* خلفية شريط الشفاف */
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-color);
+  border-radius: 16px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 16px;
+  border: 2px solid var(--background-color);
+  transition: background-color 0.3s, opacity 0.3s;
+  opacity: 0.3;
+  /* شفاف افتراضي */
+}
+
+*::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--primary-color-hover);
+  opacity: 1;
+  /* يظهر بوضوح عند المرور */
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--background-color);
+}
+
+/* خيار إضافي: عند تمرير العنصر نفسه يظهر السكولبار أكثر وضوحاً */
+*:hover::-webkit-scrollbar-thumb {
+  opacity: 0.7;
 }

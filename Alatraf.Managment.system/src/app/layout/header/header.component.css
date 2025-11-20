@@ -1,15 +1,13 @@
-:host {
-  width: auto;
-  height: 80px;
-}
-
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: var(--backgroun-color);
   gap: 20px;
-  grid-area: header;
+
+  width: auto;
+  height: 80px;
+
   padding: 16px;
 }
 
