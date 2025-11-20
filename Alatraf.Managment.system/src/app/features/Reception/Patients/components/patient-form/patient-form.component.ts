@@ -16,11 +16,12 @@ import {
   CreateUpdatePatientDto,
   PatientType,
 } from '../../models/patient.model';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-patient-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './patient-form.component.html',
   styleUrl: './patient-form.component.css',
 })
@@ -62,12 +63,24 @@ export class PatientFormComponent implements OnChanges, OnInit {
     if (this.form.valid) {
       this.save.emit(this.form.value as CreateUpdatePatientDto);
     } else {
-      console.log(' the form is not valid ');
+      this.form.markAllAsTouched();
     }
   }
 
   onClose() {
+    this.closeDialog();
+  }
+  backdropClick() {
+    this.closeDialog();
+  }
+
+  closeDialog() {
     this.close.emit();
+  }
+
+  isInvalid(controlName: string): boolean {
+    const control = this.form.get(controlName);
+    return !!(control && control.invalid && control.touched);
   }
 
   private formatDate(date: string | null | undefined): string | null {

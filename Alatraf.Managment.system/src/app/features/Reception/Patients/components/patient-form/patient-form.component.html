@@ -1,10 +1,16 @@
+<div class="backdrop" (click)="backdropClick()"></div>
+
 <div class="box dialog">
   <div class="space-between sticky">
-    <!-- <h2 class="title-lg" >تعديل  بيانات المريض</h2> -->
     <h2 class="title-lg">
       {{ mode() ? "تعديل  بيانات المريض" : " اصدار تذكرة خدمة" }}
     </h2>
-    <img src="assets/icons/close-icon.svg" alt="إغلاق" (click)="onClose()" />
+    <img
+      src="assets/icons/close-icon.svg"
+      alt="إغلاق"
+      (click)="onClose()"
+      class="close-icon"
+    />
   </div>
 
   <div>
@@ -29,6 +35,7 @@
     <div class="row flex-center">
       <label class="label-lg">الاسم</label>
       <input class="label-lg" type="text" formControlName="fullname" />
+      <div *ngIf="isInvalid('fullname')" class="error-message">الاسم مطلوب</div>
     </div>
 
     <div class="row flex-center">
@@ -45,8 +52,8 @@
     <div class="row flex-center">
       <label class="label-lg">رقم الهاتف</label>
       <input class="label-lg" type="number" formControlName="phone" />
+      <div *ngIf="isInvalid('phone')" class="error-message">رقم الهاتف مطلوب</div>
     </div>
-
     <div class="row flex-center">
       <label class="label-lg">العنوان</label>
       <input class="label-lg" type="text" formControlName="address" />

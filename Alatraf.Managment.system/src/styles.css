@@ -334,7 +334,7 @@ backdrop ,box ,dailog,homeline,table,button
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  pointer-events: none;
+  pointer-events:painted;
   z-index: 2;
 }
 /* box */

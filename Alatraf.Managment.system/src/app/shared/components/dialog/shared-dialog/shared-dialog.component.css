@@ -1,0 +1,25 @@
+/* prevent body scroll when dialog open */
+.dialog-open {
+  overflow: hidden;
+}
+
+
+/* header */
+.dialog-header {
+  align-items: center;
+}
+
+.close-icon {
+  cursor: pointer;
+}
+
+/* actions spacing */
+.dialog-actions {
+  margin-top: 18px;
+  justify-content: center;
+}
+
+/* responsive */
+@media (max-width: 520px) {
+  .dialog-box { width: 92% !important; padding: 14px; }
+}
