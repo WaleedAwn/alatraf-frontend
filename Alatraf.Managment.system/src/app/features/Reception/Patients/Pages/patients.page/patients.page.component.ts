@@ -12,6 +12,8 @@ import { Patient, PatientFilterDto } from '../../models/patient.model';
 import { PatientService } from '../../Services/patient.service';
 import { ApiResult } from '../../../../../core/models/ApiResult';
 import { FormsModule } from '@angular/forms';
+import { DialogService } from '../../../../../shared/components/dialog/dialog.service';
+import { DialogConfig } from '../../../../../shared/components/dialog/DialogConfig';
 
 @Component({
   selector: 'app-patients-page',
@@ -21,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class PatientsPageComponent implements OnInit {
   private patientService = inject(PatientService);
+  private dialogService = inject(DialogService);
 
   patients = this.patientService.loadedPatients;
   searchText = signal<string>('');
@@ -74,5 +77,44 @@ export class PatientsPageComponent implements OnInit {
   onSearch(value: string) {
     this.searchText.set(value);
     this.filters.searchTerm = value;
+  }
+
+  onDeletePatient(patient: Patient) {
+    const config: DialogConfig = {
+      title: 'حذف بيانات المريض',
+      message: 'هل أنت متأكد من حذف بيانات المريض التالية؟',
+      type: 'delete',
+      payload: {
+        'رقم المريض': patient.nationalNo,
+        الاسم: patient.fullname,
+        // ' رقم الهاتف': patient.phone,
+      },
+      confirmText: 'حذف',
+      cancelText: 'إلغاء',
+      showCancel: true,
+    };
+
+    this.dialogService.confirm(config).subscribe((confirmed) => {
+      if (confirmed) {
+        this.patientService.deletePatient(patient.patientId).subscribe({
+          next: (res) => {
+            if (res.isSuccess) {
+              // this.loadAllPatients(this.filters);
+            }
+          },
+          error: (error) => {
+            this.dialogService
+              .confirm({
+                title: 'خطأ',
+                message: 'حدث خطأ أثناء الحذف.',
+                type: 'warning',
+                confirmText: 'موافق',
+                showCancel: false,
+              })
+              .subscribe();
+          },
+        });
+      }
+    });
   }
 }

@@ -21,7 +21,8 @@
         (ngModelChange)="onSearch($event)"
       />
     </div>
-    <app-patients-list [patients]="patients()"></app-patients-list>
+    <app-patients-list [patients]="patients()"   (deletePatient)="onDeletePatient($event)">
+></app-patients-list>
   </div>
   <router-outlet></router-outlet>
 </main>

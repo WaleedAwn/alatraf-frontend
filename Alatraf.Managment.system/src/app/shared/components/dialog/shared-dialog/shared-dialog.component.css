@@ -1,0 +1,49 @@
+/* prevent body scroll when dialog open */
+.dialog-open {
+  overflow: hidden;
+}
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 1000;
+}
+
+/* main dialog box */
+.dialog-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1100;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.2);
+  padding: 18px;
+  max-width: 95%;
+  max-height: 85vh;
+  overflow: auto;
+}
+
+/* header */
+.dialog-header {
+  align-items: center;
+}
+
+.close-icon {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+/* actions spacing */
+.dialog-actions {
+  margin-top: 18px;
+  justify-content: center;
+}
+
+/* responsive */
+@media (max-width: 520px) {
+  .dialog-box { width: 92% !important; padding: 14px; }
+}

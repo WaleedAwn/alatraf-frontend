@@ -28,7 +28,7 @@
         </button>
         <button
           class="btn danger icon"
-          [routerLink]="['delete', patient.patientId]"
+          (click)="onDeleteClick(patient)"
         >
           <img src="assets/icons/trash-icon.svg" alt="حذف" />
         </button>
