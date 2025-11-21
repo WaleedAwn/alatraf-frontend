@@ -1,9 +1,9 @@
-import { ArabicClientErrors } from '../locals/Arabic';
-import { HttpErrorResponse } from '@angular/common/http';
-import { getFriendlyErrorMessage } from './get-friendly-error-message';
-import { ProblemDetails } from '../models/ProblemDetails';
-import { ApiResult } from '../models/ApiResult';
-import { environment } from '../../../environments/environment';
+import { HttpErrorResponse } from "@angular/common/http";
+import { environment } from "../../../../environments/environment";
+import { ArabicClientErrors } from "../../locals/Arabic";
+import { ApiResult } from "../../models/ApiResult";
+import { ProblemDetails } from "../../models/ProblemDetails";
+import { getFriendlyErrorMessage } from "./get-friendly-error-message";
 
 export function handleErrorResponse<T>(error: HttpErrorResponse): ApiResult<T> {
 

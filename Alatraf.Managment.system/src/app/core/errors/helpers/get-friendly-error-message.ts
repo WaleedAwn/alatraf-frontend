@@ -1,5 +1,5 @@
-import { HttpStatusCode } from '../enums/http-status.enum';
-import { ArabicHttpErrors } from '../locals/Arabic';
+import { HttpStatusCode } from "@angular/common/http";
+import { ArabicHttpErrors } from "../../locals/Arabic";
 
 export function getFriendlyErrorMessage(statusCode?: number): string {
   switch (statusCode) {

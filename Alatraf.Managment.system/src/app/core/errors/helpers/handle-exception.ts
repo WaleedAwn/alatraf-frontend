@@ -1,7 +1,7 @@
-import { environment } from '../../../environments/environment';
-import { ClientErrorType } from '../enums/client-error-type.enum';
-import { ArabicClientErrors } from '../locals/Arabic';
-import { ApiResult } from '../models/ApiResult';
+import { environment } from "../../../../environments/environment";
+import { ClientErrorType } from "../../enums/client-error-type.enum";
+import { ArabicClientErrors } from "../../locals/Arabic";
+import { ApiResult } from "../../models/ApiResult";
 
 export function handleException<T>(error: any): ApiResult<T> {
 

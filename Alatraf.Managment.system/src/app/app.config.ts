@@ -1,5 +1,6 @@
 import {
   ApplicationConfig,
+  ErrorHandler,
   importProvidersFrom,
   provideZoneChangeDetection,
 } from '@angular/core';
@@ -17,9 +18,12 @@ import { mockApiResponseInterceptor } from './core/interceptors/mock-api-respons
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 import { SkeletonLoadingInterceptor } from './core/interceptors/skeleteon-loading.interceptor';
 import { apiResponseInterceptor } from './core/interceptors/api-response.interceptor';
+import { GlobalErrorHandler } from './core/errors/global-error-handler';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       APP_ROUTES,
@@ -33,7 +37,7 @@ export const appConfig: ApplicationConfig = {
         SkeletonLoadingInterceptor,
         loadingInterceptor,
         // mockApiResponseInterceptor,
-        apiResponseInterceptor
+        apiResponseInterceptor,
       ])
     ),
     importProvidersFrom(
