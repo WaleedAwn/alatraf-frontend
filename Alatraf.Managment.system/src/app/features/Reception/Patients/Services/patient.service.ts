@@ -6,7 +6,7 @@ import {
   Patient,
   PatientFilterDto,
 } from '../models/patient.model';
-import { HttpParams } from '@angular/common/http';
+import { HttpHandler, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiResult } from '../../../../core/models/ApiResult';
 
@@ -28,7 +28,7 @@ export class PatientService extends BaseApiService {
       params = params.set('gender', filters.gender.toString());
     if (filters?.searchTerm)
       params = params.set('searchTerm', filters.searchTerm);
-
+  
     return this.get<Patient[]>(this.endpoint, params).pipe(
       tap((patients) => {
         if (patients.isSuccess && patients.data) {
@@ -45,7 +45,11 @@ export class PatientService extends BaseApiService {
 
   // CREATE a new patient
   createPatient(dto: CreateUpdatePatientDto): Observable<ApiResult<Patient>> {
-    return this.post<Patient>(this.endpoint, dto);
+  let headers = new HttpHeaders();
+    headers = headers.set('X-Enable-Loader', 'true');
+
+
+    return this.post<Patient>(this.endpoint, dto,headers);
   }
 
   // UPDATE an existing patient

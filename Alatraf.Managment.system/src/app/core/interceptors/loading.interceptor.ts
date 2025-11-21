@@ -5,15 +5,17 @@ import { LoadingService } from '../services/loading.service';
 
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
   const loadingService = inject(LoadingService);
-  // Check custom header and skip show the loading for  specific  requests that put the "'X-Skip-Loader') === 'true'"
-  const skipLoader = req.headers.get('X-Skip-Loader') === 'true';
+ // NEW LOGIC:
+  // Loader is triggered ONLY when header 'X-Enable-Loader' === 'true'
+  const enableLoader = req.headers.get('X-Enable-Loader') === 'true';
 
-  if (!skipLoader) {
+  if (enableLoader) {
     loadingService.show();
   }
+
   return next(req).pipe(
     finalize(() => {
-      if (!skipLoader) {
+      if (enableLoader) {
         loadingService.hide();
       }
     })
