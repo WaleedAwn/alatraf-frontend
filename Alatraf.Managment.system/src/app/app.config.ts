@@ -14,6 +14,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './mocks/in-memory-data.service';
 import { mockApiResponseInterceptor } from './core/interceptors/mock-api-response.interceptor';
+import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,10 +26,12 @@ export const appConfig: ApplicationConfig = {
         paramsInheritanceStrategy: 'always',
       })
     ),
-    provideHttpClient(withInterceptors([mockApiResponseInterceptor])),
+    provideHttpClient(
+      withInterceptors([loadingInterceptor, mockApiResponseInterceptor])
+    ),
     importProvidersFrom(
       HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-        delay: 300,
+        delay: 500,
         passThruUnknownUrl: true,
       })
     ),
