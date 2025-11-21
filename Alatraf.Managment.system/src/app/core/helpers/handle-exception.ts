@@ -1,18 +1,30 @@
 import { environment } from '../../../environments/environment';
 import { ClientErrorType } from '../enums/client-error-type.enum';
+import { ArabicClientErrors } from '../locals/Arabic';
 import { ApiResult } from '../models/ApiResult';
 
 export function handleException<T>(error: any): ApiResult<T> {
-  let message = 'An unexpected error occurred. Please try again.';
 
+  let message = ArabicClientErrors.unknown;
+
+  // Timeout
   if (error.name === ClientErrorType.Timeout) {
-    message = 'The request timed out. Please check your connection.';
-  } else if (error.message?.includes(ClientErrorType.Network) || error.status === 0) {
-    message = 'Network error. Please check your internet connection.';
-  } else if (error.name === ClientErrorType.Abort) {
-    message = 'The request was cancelled.';
-  } else if (navigator && !navigator.onLine) {
-    message = 'You are offline. Please reconnect to the internet.';
+    message = ArabicClientErrors.timeout;
+  }
+
+  // Network error OR status = 0
+  else if (error.message?.includes(ClientErrorType.Network) || error.status === 0) {
+    message = ArabicClientErrors.network;
+  }
+
+  // Cancelled request
+  else if (error.name === ClientErrorType.Abort) {
+    message = ArabicClientErrors.aborted;
+  }
+
+  // Browser offline
+  else if (navigator && !navigator.onLine) {
+    message = ArabicClientErrors.offline;
   }
 
   if (!environment.production) {

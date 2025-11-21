@@ -16,6 +16,7 @@ import { InMemoryDataService } from './mocks/in-memory-data.service';
 import { mockApiResponseInterceptor } from './core/interceptors/mock-api-response.interceptor';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 import { SkeletonLoadingInterceptor } from './core/interceptors/skeleteon-loading.interceptor';
+import { apiResponseInterceptor } from './core/interceptors/api-response.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -31,7 +32,8 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([
         SkeletonLoadingInterceptor,
         loadingInterceptor,
-        mockApiResponseInterceptor,
+        // mockApiResponseInterceptor,
+        apiResponseInterceptor
       ])
     ),
     importProvidersFrom(

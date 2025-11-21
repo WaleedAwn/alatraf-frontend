@@ -1,12 +1,11 @@
-import {
-  Component,
-  OnInit,
-  inject,
-  signal,
-} from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { PatientsListComponent } from '../../components/patients.list/patients.list.component';
-import { Patient, PatientFilterDto, PatientType } from '../../models/patient.model';
+import {
+  Patient,
+  PatientFilterDto,
+  PatientType,
+} from '../../models/patient.model';
 import { PatientService } from '../../Services/patient.service';
 import { ApiResult } from '../../../../../core/models/ApiResult';
 import { FormsModule } from '@angular/forms';
@@ -15,22 +14,23 @@ import {
   DialogConfig,
   DialogType,
 } from '../../../../../shared/components/dialog/DialogConfig';
-import { debounceTime, Subject, switchMap } from 'rxjs';
+import { debounceTime, filter, Subject, switchMap } from 'rxjs';
+import { ToastService } from '../../../../../core/services/toast.service';
 
 @Component({
   selector: 'app-patients-page',
-  imports: [PatientsListComponent, RouterLink, RouterOutlet, FormsModule,],
+  imports: [PatientsListComponent, RouterLink, RouterOutlet, FormsModule],
   templateUrl: './patients.page.component.html',
   styleUrl: './patients.page.component.css',
 })
 export class PatientsPageComponent implements OnInit {
   private patientService = inject(PatientService);
   private dialogService = inject(DialogService);
-
+  private toast = inject(ToastService);
   patients = signal<Patient[]>([]);
   searchText = new Subject<string>();
   filters: PatientFilterDto = {};
-PatientType=PatientType
+  PatientType = PatientType;
   ngOnInit() {
     // Listen to search input with debounce
     this.searchText
@@ -85,6 +85,7 @@ PatientType=PatientType
           next: (res) => {
             if (res.isSuccess) {
               // this.loadAllPatients(this.filters);
+              this.toast.success('تم حذف البيانات بنجاح');
             }
           },
           error: (error) => {

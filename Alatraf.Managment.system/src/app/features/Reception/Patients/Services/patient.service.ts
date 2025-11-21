@@ -61,6 +61,9 @@ export class PatientService extends BaseApiService {
 
   // DELETE a patient
   deletePatient(id: number): Observable<ApiResult<void>> {
-    return this.delete<void>(`${this.endpoint}/${id}`);
+    // let header = new HttpHeaders();
+    // header = header.set('X-Enable-Loader', 'true');
+
+    return this.delete<void>(`${this.endpoint}/${id}`, undefined);
   }
 }

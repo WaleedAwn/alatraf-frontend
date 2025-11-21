@@ -1,27 +1,25 @@
 import { HttpStatusCode } from '../enums/http-status.enum';
+import { ArabicHttpErrors } from '../locals/Arabic';
 
 export function getFriendlyErrorMessage(statusCode?: number): string {
   switch (statusCode) {
     case HttpStatusCode.BadRequest:
-      return 'Invalid request. Please check your input.';
+      return ArabicHttpErrors[400];
     case HttpStatusCode.Unauthorized:
-      return 'Unauthorized. Please log in.';
+      return ArabicHttpErrors[401];
     case HttpStatusCode.Forbidden:
-      return 'You do not have permission to perform this action.';
+      return ArabicHttpErrors[403];
     case HttpStatusCode.NotFound:
-      return 'Resource not found. It may have been deleted or moved.';
-    case HttpStatusCode.Conflict:
-      return 'Conflict detected. Please refresh and try again.';
+      return ArabicHttpErrors[404];
     case HttpStatusCode.UnprocessableEntity:
-      return 'Some fields contain invalid data. Please review and correct them.';
+      return ArabicHttpErrors[422];
     case HttpStatusCode.InternalServerError:
-      return 'A server error occurred. Please try again later.';
+      return ArabicHttpErrors[500];
     case HttpStatusCode.BadGateway:
     case HttpStatusCode.ServiceUnavailable:
     case HttpStatusCode.GatewayTimeout:
-      return 'The service is temporarily unavailable. Please try again later.';
-   
+      return ArabicHttpErrors[503];
     default:
-      return 'An unexpected error occurred. Please try again.';
+      return ArabicHttpErrors.unknown;
   }
 }
