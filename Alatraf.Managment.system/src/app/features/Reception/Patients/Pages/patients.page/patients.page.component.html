@@ -1,31 +1,18 @@
 <main class="padding-80 column gap-32">
   <div class="row space-between">
-    <button class="btn primary label-lg" routerLink="add">إضافة مريض</button>
-    <button class="btn primary label-lg">إستشارة طبيبة</button>
+    <button class="btn primary label-lg big-btn" routerLink="add">إضافة مريض</button>
+    <button class="btn primary label-lg big-btn">إستشارة طبيبة</button>
   </div>
   <div class="box max-hight-712">
     <h1 class="title-lg">البحث عن مريض</h1>
 
     <div class="search-box">
-      <img
-        src="assets/icons/search-icon.svg"
-        class="search-icon"
-        alt="search"
-      />
-      <input
-        #searchBox
-        type="text"
-        placeholder="بحث: اسم المريض أو الرقم"
-        (input)="onSearch(searchBox.value)"
-      />
+      <img src="assets/icons/search-icon.svg" class="search-icon" alt="search" />
+      <input #searchBox type="text" placeholder="بحث: اسم المريض أو الرقم" (input)="onSearch(searchBox.value)" />
     </div>
 
-    <app-patients-list
-      [patients]="patients()"
-      (deletePatient)="onDeletePatient($event)"
-    >
-      ></app-patients-list
-    >
+    <app-patients-list [patients]="patients()" (deletePatient)="onDeletePatient($event)">
+      ></app-patients-list>
   </div>
   <router-outlet></router-outlet>
 </main>

@@ -1,36 +1,18 @@
-input[type="date"] {
-  position: relative;
-  padding-left: 36px; 
-  background-image: url('/assets/icons/calendar-icon.svg'); 
-  background-repeat: no-repeat;
-  background-position: left 12px center;
-  background-size: 20px 20px;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;        
-  position: absolute;   
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
 /* this classes for the errors of the reactive form */
 /* patient-form.component.css */
 
 input.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched {
-  border: 1px solid red;
-}
-.error-message {
-  color: red;
-  font-size: 0.8rem;
-  margin-top: 2px;
-      margin-right: 10px;
+  border: 1px solid var(--card-red);
 }
 
-.close-icon{
+.error-message {
+  color: var(--red-color);
+  font-size: 0.8rem;
+  margin-top: 2px;
+  margin-right: 10px;
+}
+
+.close-icon {
   cursor: pointer;
 }

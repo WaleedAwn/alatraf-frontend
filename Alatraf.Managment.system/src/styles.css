@@ -67,10 +67,11 @@ body {
 
 /* Display / Large */
 .display-lg {
-  font-size: 3.75rem;
-  /* 60px بدل 74px */
+  font-size: 51px;
+  /* 60px × 0.85 */
   font-weight: 900;
-  letter-spacing: -0.01875rem;
+  letter-spacing: -0.3px;
+  /* -0.01875rem ≈ -0.3px × 0.85 */
   line-height: 1.05;
   margin: 0 0 0.5em 0;
   color: var(--primary-color);
@@ -78,8 +79,8 @@ body {
 
 /* Headline / Medium */
 .headline-md {
-  font-size: 1.875rem;
-  /* 30px بدل 36px */
+  font-size: 25.5px;
+  /* 30px × 0.85 */
   font-weight: 400;
   line-height: 1.15;
   margin: 0 0 0.5em 0;
@@ -88,8 +89,8 @@ body {
 
 /* Headline / Small */
 .headline-sm {
-  font-size: 1.625rem;
-  /* 26px بدل 31px */
+  font-size: 22.1px;
+  /* 26px × 0.85 */
   font-weight: 400;
   line-height: 1.2;
   margin: 0 0 0.45em 0;
@@ -98,8 +99,8 @@ body {
 
 /* Title / Large */
 .title-lg {
-  font-size: 1.5rem;
-  /* 24px بدل 28px */
+  font-size: 20.4px;
+  /* 24px × 0.85 */
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 0.4em 0;
@@ -108,10 +109,11 @@ body {
 
 /* Title / Medium */
 .title-md {
-  font-size: 1.125rem;
-  /* 18px بدل 21px */
+  font-size: 15.3px;
+  /* 18px × 0.85 */
   font-weight: 600;
-  letter-spacing: 0.0125rem;
+  letter-spacing: 0.17px;
+  /* 0.0125rem ≈ 0.2px × 0.85 */
   line-height: 1.25;
   margin: 0 0 0.35em 0;
   color: var(--primary-color);
@@ -121,10 +123,11 @@ body {
 .title-sm,
 input::placeholder,
 th {
-  font-size: 1rem;
-  /* 16px بدل 18px */
+  font-size: 13.6px;
+  /* 16px × 0.85 */
   font-weight: 600;
-  letter-spacing: 0.009375rem;
+  letter-spacing: 0.12px;
+  /* 0.009375rem ≈ 0.15px × 0.85 */
   line-height: 1.3;
   margin: 0 0 0.3em 0;
   color: var(--primary-color);
@@ -132,10 +135,11 @@ th {
 
 /* Body / Medium */
 .body-md {
-  font-size: 1rem;
-  /* 16px بدل 18px */
+  font-size: 13.6px;
+  /* 16px × 0.85 */
   font-weight: 400;
-  letter-spacing: 0.021875rem;
+  letter-spacing: 0.3px;
+  /* 0.021875rem ≈ 0.35px × 0.85 */
   line-height: 1.6;
   margin: 0 0 1em 0;
   color: var(--primary-color);
@@ -143,10 +147,11 @@ th {
 
 /* Body / Small */
 .body-sm {
-  font-size: 0.875rem;
-  /* 14px بدل 15px */
+  font-size: 11.9px;
+  /* 14px × 0.85 */
   font-weight: 400;
-  letter-spacing: 0.03125rem;
+  letter-spacing: 0.42px;
+  /* 0.03125rem ≈ 0.5px × 0.85 */
   line-height: 1.4;
   color: var(--primary-color);
 }
@@ -154,10 +159,11 @@ th {
 /* Label / Large */
 .label-lg,
 input::placeholder {
-  font-size: 1rem;
-  /* 16px بدل 18px */
+  font-size: 13.6px;
+  /* 16px × 0.85 */
   font-weight: 400;
-  letter-spacing: 0.009375rem;
+  letter-spacing: 0.12px;
+  /* 0.009375rem ≈ 0.15px × 0.85 */
   line-height: 1;
   color: var(--primary-color);
 }
@@ -165,6 +171,7 @@ input::placeholder {
 input::placeholder {
   color: var(--primary-color-50);
 }
+
 
 .primary-color {
   color: var(--primary-color);
@@ -332,7 +339,7 @@ select {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: fit-content;
+  height: 100%;
   max-height: 500px;
   overflow-y: auto;
 }
@@ -389,6 +396,10 @@ select {
   font-size: 1rem;
 }
 
+.btn.big-btn {
+  padding: 16px 48px;
+}
+
 .btn.primary {
   background-color: var(--primary-color);
   color: var(--white-color);
@@ -422,7 +433,7 @@ select {
 }
 
 .btn.icon {
-  padding: 2px 4px;
+  padding: 4px 8px;
   border-radius: 8px;
 }
 
@@ -496,4 +507,24 @@ th.buttons {
   white-space: nowrap;
   text-align: center;
   border-bottom: none;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  margin: auto 0;
+}
+
+.search-box input {
+  width: 100%;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
