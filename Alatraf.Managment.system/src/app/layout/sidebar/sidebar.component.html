@@ -1,40 +1,31 @@
-<aside>
-  <img
-    src="/assets/images/logo-white.svg"
-    alt="مركز الأطراف و العلاج الطبيعي"
-  />
+<img src="/assets/images/logo-white.svg" alt="مركز الأطراف و العلاج الطبيعي" />
 
-  <button>
-    <img alt="الصفحة الرئيسية" />
-    <p class="title-md">الصفحة الرئيسية</p>
-  </button>
+<button>
+  <img alt="الصفحة الرئيسية" src="/assets/icons/home-white.svg" />
+  <p class="title-md">الصفحة الرئيسية</p>
+</button>
 
-  <ul>
-    @for (cat of menu(); track $index) {
+<ul>
+  @for (cat of menu(); track $index) {
 
-    <li>
-      <p class="title-sm">
-        {{ cat.category }}
-      </p>
-      <span class="menu-line"></span>
-    </li>
-    @for (item of cat.items; track $index) {
-    <li>
-      <button>
-        <img alt="الصفحة الرئيسية" src="{{ item.icon }}" />
-        <p
-          class="title-md"
-          [routerLink]="[item.route]"
-          routerLinkActive="active"
-        >
-          {{ item.label }}
-        </p>
-      </button>
-    </li>
-    } }
+  <li>
+    <p class="title-sm">
+      {{ cat.category }}
+    </p>
+    <span class="menu-line"></span>
+  </li>
+  @for (item of cat.items; track $index) {
+  <li>
     <button>
-      <img alt="" />
-      <p class="title-md">الصفحة الرئيسية</p>
+      <img alt="{{ item.label }}" [src]="item.icon ? item.icon : '/assets/icons/home-white.svg'" />
+      <p class="title-md" [routerLink]="[item.route]" routerLinkActive="active">
+        {{ item.label }}
+      </p>
     </button>
-  </ul>
-</aside>
+  </li>
+  } }
+</ul>
+<button>
+  <img alt="تسجيل الخروج" src="/assets/icons/log-out-icon.svg" />
+  <p class="title-md">تسجيل الخروج</p>
+</button>

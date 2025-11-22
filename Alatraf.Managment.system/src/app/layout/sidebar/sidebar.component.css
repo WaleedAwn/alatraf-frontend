@@ -1,4 +1,4 @@
-aside {
+:host {
   grid-area: aside;
   background-color: var(--primary-color);
   height: 100%;
@@ -10,18 +10,22 @@ aside {
   height: 100vh;
   overflow-y: auto;
   box-sizing: border-box;
+  padding-top: 24px;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color-hover) var(--primary-color);
 }
 
 
-aside button {
+button {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-self: center;
   gap: 16px;
 
-  width: 240px;
-  height: 36px;
-  padding: 22px 0;
+  width: 168px;
+  height: 28px;
+  padding: 22px 8px;
 
   background: none;
   border: none;
@@ -30,18 +34,20 @@ aside button {
   transition: background-color 0.3s;
 }
 
-aside button img {
+button img {
   object-fit: contain;
   display: block;
+  height: 24px;
+  width: 24px;
 }
 
-aside button .title-md {
+button .title-md {
   color: var(--white-color);
   line-height: 1;
   margin: 0;
 }
 
-aside .title-sm {
+.title-sm {
   color: var(--white-color);
   line-height: 1;
   margin: 0;
@@ -58,31 +64,66 @@ aside .title-sm {
   border-radius: 2px;
 }
 
-aside button:hover {
+button:hover {
   background-color: var(--primary-color-hover);
 }
 
-aside button.active {
+button.active {
   background-color: var(--card-active-color);
 }
 
-aside button.active .title-md {
+button.active .title-md {
   color: var(--primary-color);
 }
 
-aside button img {
+/* button img {
   content: url("/assets/icons/home-white.svg");
-}
+} */
 
-aside button.active img {
+/* button.active img {
   content: url("/assets/icons/home-blue.svg");
-}
+} */
 
-aside>button {
+:host>button {
   margin: 40px 0;
 }
 
-aside ul,
-aside ul li {
+ul,
+ul li {
   list-style: none;
+}
+
+
+:host::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+:host::-webkit-scrollbar-track {
+  background: var(--primary-color);
+  border-radius: 16px;
+}
+
+:host::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color-hover);
+  border-radius: 16px;
+  border: 2px solid var(--primary-color);
+  opacity: 0.3;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+:host::-webkit-scrollbar-thumb:hover,
+:host::-webkit-scrollbar-thumb:active {
+  background-color: var(--white-color);
+  opacity: 1;
+}
+
+:host::-webkit-scrollbar-corner {
+  background: var(--primary-color);
+}
+
+/* عند المرور على العنصر يظهر السكروول بوضوح */
+:host:hover::-webkit-scrollbar-thumb {
+  opacity: 0.7;
 }
