@@ -14,7 +14,7 @@ import {
   DialogConfig,
   DialogType,
 } from '../../../../../shared/components/dialog/DialogConfig';
-import { debounceTime, filter, Subject, switchMap } from 'rxjs';
+import { debounceTime, filter, finalize, Subject, switchMap } from 'rxjs';
 import { ToastService } from '../../../../../core/services/toast.service';
 
 @Component({
@@ -27,6 +27,8 @@ export class PatientsPageComponent implements OnInit {
   private patientService = inject(PatientService);
   private dialogService = inject(DialogService);
   private toast = inject(ToastService);
+  isDeleting = signal(false);
+
   patients = signal<Patient[]>([]);
   searchText = new Subject<string>();
   filters: PatientFilterDto = {};
@@ -69,40 +71,41 @@ export class PatientsPageComponent implements OnInit {
   }
 
   onDeletePatient(patient: Patient) {
+    // 🚫 Prevent entering delete flow twice
+    if (this.isDeleting()) return;
+    this.isDeleting.set(true);
+
     const config: DialogConfig = {
       title: 'حذف بيانات المريض',
       message: 'هل أنت متأكد من حذف بيانات المريض التالية؟',
       payload: {
         'رقم المريض': patient.nationalNo,
         الاسم: patient.fullname,
-        // ' رقم الهاتف': patient.phone,
       },
     };
 
     this.dialogService.confirmDelete(config).subscribe((confirmed) => {
-      if (confirmed) {
-        this.patientService.deletePatient(patient.patientId).subscribe({
+      if (!confirmed) {
+        this.isDeleting.set(false);
+        return;
+      }
+
+      this.patientService
+        .deletePatient(patient.patientId)
+        .pipe(
+          finalize(() => this.isDeleting.set(false)) // 🔥 Ensures unlock after finish
+        )
+        .subscribe({
           next: (res) => {
             if (res.isSuccess) {
-              // this.loadAllPatients(this.filters);
               this.toast.success('تم حذف البيانات بنجاح');
+              this.loadAllPatients();
             }
           },
-          error: (error) => {
+          error: () => {
             this.toast.error('حدث خطأ أثناء الحذف.');
-
-            // this.dialogService
-            //   .confirm({
-            //     title: 'خطأ',
-            //     message: 'حدث خطأ أثناء الحذف.',
-            //     type: DialogType.Warning,
-            //     confirmText: 'موافق',
-            //     showCancel: false,
-            //   })
-            //   .subscribe();
           },
         });
-      }
     });
   }
 

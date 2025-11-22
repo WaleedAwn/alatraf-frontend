@@ -29,7 +29,7 @@ export const MENU_CONFIG: MenuCategory[] = [
         label: 'عرض المرضى ',
         icon: 'assets/icons/user-icon.svg',
 
-        route: '/registration',
+        route: '/registration/dfghn',
         requiredPermissions: [PERMISSIONS.PATIENTS.VIEW],
       },
     ],
