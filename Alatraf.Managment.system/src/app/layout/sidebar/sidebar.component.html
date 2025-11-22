@@ -16,9 +16,9 @@
   </li>
   @for (item of cat.items; track $index) {
   <li>
-    <button>
+    <button [routerLink]="[item.route]" routerLinkActive="active">
       <img alt="{{ item.label }}" [src]="item.icon ? item.icon : '/assets/icons/home-white.svg'" />
-      <p class="title-md" [routerLink]="[item.route]" routerLinkActive="active">
+      <p class="title-md"  >
         {{ item.label }}
       </p>
     </button>
