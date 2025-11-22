@@ -1,11 +1,11 @@
 @if (patients()) {
 
 <table>
-  <thead class="sticky">
+  <thead>
     <tr>
-      <th>رقم المريض</th>
-      <th>رقم الهوية</th>
-      <th class="th-expand">اسم المريض</th>
+      <th class="title-sm">رقم المريض</th>
+      <th class="title-sm">رقم الهوية</th>
+      <th class="th-expand title-sm">اسم المريض</th>
       <th class="buttons"></th>
     </tr>
   </thead>
@@ -60,14 +60,11 @@
       <td class="body-md">{{ patient.nationalNo }}</td>
       <td class="body-md">{{ patient.fullname }}</td>
       <td class="row gap-16">
-        <button class="btn primary icon">
-          <p class="label-md">اصدار كرت خدمة</p>
+        <button class="btn primary small-btn">
+          <p class="label-sm">اصدار كرت خدمة</p>
         </button>
 
-        <button
-          class="btn primary icon"
-          [routerLink]="['edit/', patient.patientId]"
-        >
+        <button class="btn primary icon" [routerLink]="['edit/', patient.patientId]">
           <img src="assets/icons/pencil-icon.svg" alt="تعديل" />
         </button>
 

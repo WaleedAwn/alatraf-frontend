@@ -36,3 +36,8 @@ header {
   align-items: center;
   gap: 10px;
 }
+
+.user-info .user-icon {
+  height: 32px;
+  width: 32px;
+}

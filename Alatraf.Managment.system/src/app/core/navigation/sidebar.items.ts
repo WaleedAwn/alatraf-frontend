@@ -21,13 +21,13 @@ export const MENU_CONFIG: MenuCategory[] = [
     items: [
       {
         label: 'إدارة المرضى',
-        icon: 'assets/icons/user-icon.svg',
+        icon: 'assets/icons/user-icon-w.svg',
         route: '/registration/patients',
         requiredPermissions: [PERMISSIONS.PATIENTS.ADD],
       },
       {
         label: 'عرض المرضى ',
-        icon: 'assets/icons/user-icon.svg',
+        icon: 'assets/icons/user-icon-w.svg',
 
         route: '/registration',
         requiredPermissions: [PERMISSIONS.PATIENTS.VIEW],
