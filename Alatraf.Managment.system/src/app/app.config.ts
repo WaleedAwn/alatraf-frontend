@@ -1,5 +1,6 @@
 import {
   ApplicationConfig,
+  ErrorHandler,
   importProvidersFrom,
   provideZoneChangeDetection,
 } from '@angular/core';
@@ -13,10 +14,15 @@ import { APP_ROUTES } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './mocks/in-memory-data.service';
-import { mockApiResponseInterceptor } from './core/interceptors/mock-api-response.interceptor';
+import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+import { SkeletonLoadingInterceptor } from './core/interceptors/skeleteon-loading.interceptor';
+import { apiResponseInterceptor } from './core/interceptors/api-response.interceptor';
+import { GlobalErrorHandler } from './core/errors/global-error-handler';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       APP_ROUTES,
@@ -25,11 +31,21 @@ export const appConfig: ApplicationConfig = {
         paramsInheritanceStrategy: 'always',
       })
     ),
-    provideHttpClient(withInterceptors([mockApiResponseInterceptor])),
+    provideHttpClient(
+      withInterceptors([
+        SkeletonLoadingInterceptor,
+        loadingInterceptor,
+        apiResponseInterceptor,
+      ])
+    ),
     importProvidersFrom(
       HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-        delay: 300,
+        delay: 500,
         passThruUnknownUrl: true,
+        dataEncapsulation: false,
+        put204: false, // return body instead of empty
+        post204: false, // return body instead of empty
+        delete404: true,
       })
     ),
   ],

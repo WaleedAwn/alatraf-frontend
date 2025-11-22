@@ -1,0 +1,12 @@
+<div class="toast-container">
+      <div
+        class="toast"
+        *ngFor="let t of toastService.toasts()"
+        [class.success]="t.type === 'success'"
+        [class.error]="t.type === 'error'"
+        [class.warning]="t.type === 'warning'"
+        [class.info]="t.type === 'info'"
+      >
+        <p>{{ t.message }}</p>
+      </div>
+    </div>

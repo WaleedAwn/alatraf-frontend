@@ -10,7 +10,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <!-- <tbody>
     @for (patient of patients(); track $index) {
     <tr>
       <td class="body-md">{{ patient.phone }}</td>
@@ -35,9 +35,48 @@
       </td>
     </tr>
     }
+  </tbody> -->
+
+  <tbody>
+    <!-- ⭐ SHOW SKELETON ROWS WHILE LOADING -->
+    @if (pageLoader.isLoading()) { @for (i of skeletonRows; track i) {
+    <tr>
+      <td><app-skeleton width="70%" height="16px">WA</app-skeleton></td>
+      <td><app-skeleton width="70%" height="16px"></app-skeleton></td>
+      <td><app-skeleton width="90%" height="16px"></app-skeleton></td>
+      <td class="row gap-16">
+        <app-skeleton width="40px" height="16px"></app-skeleton>
+        <app-skeleton width="40px" height="16px"></app-skeleton>
+        <app-skeleton width="40px" height="16px"></app-skeleton>
+      </td>
+    </tr>
+    } }
+
+    <!-- ⭐ SHOW REAL DATA WHEN NOT LOADING -->
+    @else { @if (patients().length > 0) { @for (patient of patients(); track
+    patient.patientId) {
+    <tr>
+      <td class="body-md">{{ patient.phone }}</td>
+      <td class="body-md">{{ patient.nationalNo }}</td>
+      <td class="body-md">{{ patient.fullname }}</td>
+      <td class="row gap-16">
+        <button class="btn primary icon">
+          <p class="label-md">اصدار كرت خدمة</p>
+        </button>
+
+        <button
+          class="btn primary icon"
+          [routerLink]="['edit/', patient.patientId]"
+        >
+          <img src="assets/icons/pencil-icon.svg" alt="تعديل" />
+        </button>
+
+        <button class="btn danger icon" (click)="onDeleteClick(patient)">
+          <img src="assets/icons/trash-icon.svg" alt="حذف" />
+        </button>
+      </td>
+    </tr>
+    } } }
   </tbody>
 </table>
-} @else {
-
-<p>No Patients Data</p>
 }

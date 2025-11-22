@@ -1,4 +1,4 @@
-import { PERMISSIONS } from './../constants/permissions';
+import { PERMISSIONS } from '../models/constants/permissions';
 
 export interface MenuItem {
   label: string; // Name of the menu item

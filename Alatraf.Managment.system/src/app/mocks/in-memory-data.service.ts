@@ -5,24 +5,22 @@ import { PatientController } from './patients/patient.controller';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     return {
-      patients: PATIENTS_MOCK_DATA
+      patients: PATIENTS_MOCK_DATA,
     };
   }
 
- get(reqInfo: RequestInfo) {
-  if (reqInfo.collectionName === 'patients') {
-    if (reqInfo.id) {
-      // If URL contains an ID, return single patient
-      return PatientController.getById(reqInfo);
-    } else {
-      // Otherwise return all patients
-      return PatientController.getAll(reqInfo);
+  get(reqInfo: RequestInfo) {
+    if (reqInfo.collectionName === 'patients') {
+      if (reqInfo.id) {
+        // If URL contains an ID, return single patient
+        return PatientController.getById(reqInfo);
+      } else {
+        // Otherwise return all patients
+        return PatientController.getAll(reqInfo);
+      }
     }
+    return undefined;
   }
-  return undefined;
-}
-
-   
 
   post(reqInfo: RequestInfo) {
     if (reqInfo.collectionName === 'patients') {
